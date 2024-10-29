@@ -10,6 +10,10 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 
                 <h1> Hola</h1>
+                <form action="{{ route('create') }}" method="POST">
+                    @csrf
+                    <input type="submit" value="Add Course">
+                </form>
                 
             </div>
         </div>
