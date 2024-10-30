@@ -13,7 +13,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::get('/',[WebController::class,'dashboard'])->name('dashboard'); // Jaime
     Route::get('/teachers',[TeacherController::class,'teacherCourses'])->name('teacherCourses'); // Felipe Vista Profesores
     Route::delete('/teachers/{course_id}',[TeacherController::class,'destroyCourses'])->name('destroyCourses'); //Felipe Boton para borrar un curso
-    Route::post('/teachers/update',[TeacherController::class,'update'])->name('updateCourses'); // Angela boton que te lleva a la vista editar
+    Route::get('/teachers/update',[TeacherController::class,'update'])->name('updateCourses'); // Angela boton que te lleva a la vista editar
     Route::put('/teachers/update/edit/{course_id}',[TeacherController::class,'editCourses'])->name('editCourses'); // Ángela   Ruta que edita el curso con nueva info
     Route::get('/teachers/create',[TeacherController::class,'create'])->name('create');//Angela ruta que te lleva al formulario donde introduces los datos del nuevo curso
     Route::post('/teachers/create/store',[TeacherController::class,'store'])->name('store');//Angela ruta que mete los datos en bdd
