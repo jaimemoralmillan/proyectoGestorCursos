@@ -18,10 +18,17 @@
 
 
     <ul>
+        <h1>Edit Course:</h1>
         @forelse ($courses as $course)
             <li>
+                {{$course->title}}
+                <form action="{{ route('editCourses', $course->id) }}" method="post">
+                    @method("PUT")
+                    @csrf
+                    <input type="text" name="name" value="{{ $course->id }}" placeholder="name" />
+                    <input type="submit" value="Update">
+                </form>
                 <a href="{{ route('updateCourses', $course->id) }}">✏️​</a>
-                
             </li>
            
         @empty
@@ -30,12 +37,7 @@
         @endforelse
     </ul> 
 
-    <h1>Edit Course: {{$course->title}}</h1>
-    <form action="{{ route('editCourses', $course->id) }}" method="post">
-        @method("PUT")
-        @csrf
-        <input type="text" name="name" value="{{ $product->id }}" placeholder="name" />
-        <input type="submit" value="Update">
-    </form>
+    
+   
 </body>
 </html>
