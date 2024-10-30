@@ -9,11 +9,20 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 
-                <h1> Hola</h1>
-                <form action="{{ route('create') }}" method="POST">
-                    @csrf
-                    <input type="submit" value="Add Course">
-                </form>
+                <h1> Bienvenido al Gestor de cursos</h1>
+
+                <h2> Acceso de Alumnos<h2> 
+                    <form method="get" action="{{route('students')}}"> 
+                    <input type="submit" value="Acceder">
+                    </form>
+                <h2>Acceso de Profesores<h2> 
+                
+                    <form method="get" action="{{route('teacherCourses')}}"> 
+                        <input type="submit" value="Acceder">
+                        </form>
+                
+
+
                 
             </div>
         </div>
