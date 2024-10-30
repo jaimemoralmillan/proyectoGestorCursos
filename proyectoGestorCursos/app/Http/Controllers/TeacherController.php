@@ -48,7 +48,10 @@ class TeacherController extends Controller
         return view('addCourse', compact('course'));
     }
 
-    
+    public function registration()
+    {
+        return view('registration');
+    }
    
 
 }
