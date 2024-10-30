@@ -23,6 +23,14 @@
                 <a href="{{ route('updateCourses', $course->id) }}">✏️​</a>
                 
             </li>
+
+            <h1>Edit Course: {{$course->title}}</h1>
+    <form action="{{ route('editCourses', $course->id) }}" method="post">
+        @method("PUT")
+        @csrf
+        <input type="text" name="name" value="{{ $course->id }}" placeholder="name" />
+        <input type="submit" value="Update">
+    </form>
            
         @empty
             <li><h2>No Data</h2></li>
@@ -30,12 +38,6 @@
         @endforelse
     </ul> 
 
-    <h1>Edit Course: {{$course->title}}</h1>
-    <form action="{{ route('editCourses', $course->id) }}" method="post">
-        @method("PUT")
-        @csrf
-        <input type="text" name="name" value="{{ $product->id }}" placeholder="name" />
-        <input type="submit" value="Update">
-    </form>
+    
 </body>
 </html>
