@@ -34,6 +34,12 @@ class TeacherController extends Controller
     }
     public function update(Request $request, $id)
     {
+    
+        $courses = Course::findOrFail();
+        return view('update', compact('courses'));
+    }
+    public function editCourses(Request $request, $id)
+    {
         $course = Course::find($id);
         $course->title = $request->title;
         $course->description = $request->description;
@@ -41,11 +47,7 @@ class TeacherController extends Controller
         $course->content = $request->content;
         $course->save();
         return redirect()->route('create');
-    }
-    public function editCourses(Request $request, $id)
-    {
-        $course = Course::find($id);
-        return view('addCourse', compact('course'));
+
     }
 
     

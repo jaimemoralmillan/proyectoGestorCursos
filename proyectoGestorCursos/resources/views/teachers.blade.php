@@ -9,11 +9,8 @@
 <body>
     
     <h1>Hola soy un teacher </h1>
-
-    <form action="{{ route('create') }}" method="POST">             
-        @csrf
-        <input type="submit" value="Add Course">
-    </form>
+    <a href="{{ route('create') }}">Add Course</a>
+    
 
     
 </body>
