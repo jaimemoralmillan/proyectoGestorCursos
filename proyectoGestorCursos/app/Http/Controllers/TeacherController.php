@@ -9,6 +9,14 @@ use Auth;
 class TeacherController extends Controller
 {
     
+
+    public function teacherCourses() {
+
+
+        return view("teachers");
+    }
+
+    
     public function create()
     {   
         return view('addCourse');
@@ -31,7 +39,7 @@ class TeacherController extends Controller
         $course->description = $request->description;
         $course->curriculum = $request->curriculum;
         $course->content = $request->content;
-        $product->save();
+        $course->save();
         return redirect()->route('addCourse');
     }
     public function editCourses(Request $request, $id)
