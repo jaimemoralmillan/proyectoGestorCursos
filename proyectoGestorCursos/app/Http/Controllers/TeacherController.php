@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Course;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+
 
 class TeacherController extends Controller
 {
     
     public function create()
     {   
-        return view('addCourse');
+        $courses = Course::all();
+        return view('addCourse',compact('courses'));
     }
     public function store(Request $request)
     {   
@@ -22,7 +24,7 @@ class TeacherController extends Controller
         $course->content = $request->content;
         $course->author_id = Auth::user()->id;
         $course->save();
-        return view('addCourse');
+        return redirect()->route('create');
     }
     public function updateCourses(Request $request, $id)
     {
@@ -31,8 +33,8 @@ class TeacherController extends Controller
         $course->description = $request->description;
         $course->curriculum = $request->curriculum;
         $course->content = $request->content;
-        $product->save();
-        return redirect()->route('addCourse');
+        $course->save();
+        return redirect()->route('create');
     }
     public function editCourses(Request $request, $id)
     {
