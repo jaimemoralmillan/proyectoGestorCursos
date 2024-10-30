@@ -7,8 +7,21 @@
     <title>Document</title>
 </head>
 <body>
-    
-    <h1>Hola soy un teacher </h1>
+    <h1>Teachers</h1>
+    <h2>Hola, profe {{ $teacher->name }}  </h2>
+    <h3>Estos son tus cursos:</h3>
+    <ul>
+        @foreach ($teacher->courses as $course)
+            <li>{{ $course->name }}</li>
+        @endforeach
+    </ul>
+    <h3>Estos son tus alumnos:</h3>
+    <ul>
+        @foreach ($teacher->students as $student)
+            <li>{{ $student->name }}</li>
+        @endforeach
+    </ul>
+
 
     
                  <form action="{{ route('create') }}" method="POST">
