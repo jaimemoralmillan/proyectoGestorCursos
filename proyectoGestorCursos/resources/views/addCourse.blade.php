@@ -21,7 +21,7 @@
         <h1>Lists Course:</h1>
         @forelse ($courses as $course)
             <li>
-                {{$course->title}} <a href="{{ route('updateCourses', $course->id) }}">✏️​</a>
+                {{$course->title}} <a href="{{ route('editCourses', $course->id) }}">✏️​</a>
             </li>
            
         @empty
@@ -30,6 +30,7 @@
         @endforelse
     </ul> 
 
+    
     
    
 </body>

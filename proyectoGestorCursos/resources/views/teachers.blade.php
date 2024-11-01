@@ -11,7 +11,6 @@
     <h1>Hola soy un teacher </h1>
     <a href="{{ route('create') }}">Add Course</a>
     
-
-    
+   
 </body>
 </html>
