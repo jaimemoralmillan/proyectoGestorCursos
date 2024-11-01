@@ -32,13 +32,12 @@ class TeacherController extends Controller
         return redirect()->route('create');
         
     }
-    public function update(Request $request, $id)
+    public function edit($id)
     {
-    
-        $courses = Course::findOrFail();
-        return view('update', compact('courses'));
+        $course = Course::find($id);
+        return view('update', compact('course'));
     }
-    public function editCourses(Request $request, $id)
+    public function updateCourses(Request $request, $id)
     {
         $course = Course::find($id);
         $course->title = $request->title;
