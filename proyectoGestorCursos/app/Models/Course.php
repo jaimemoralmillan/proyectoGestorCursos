@@ -10,16 +10,16 @@ class Course extends Model
     protected $guarded=[];
 
 
-    public function users() {
+    public function users() { //students
 
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class, 'course_user', 'course_id', 'user_id'); 
 
 
     }
 
-    public function user() {
+    public function user() { //authors
 
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'author_id');
 
 
     }

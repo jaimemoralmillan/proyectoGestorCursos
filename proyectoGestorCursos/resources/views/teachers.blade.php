@@ -8,26 +8,36 @@
 </head>
 <body>
     <h1>Teachers</h1>
-    <h2>Hola, profe {{ $teacher->name }}  </h2>
-    <h3>Estos son tus cursos:</h3>
+    <h2>Hola, {{ Auth::user()->name }}</h2>
+    <form action="{{ route('create') }}" method="POST">
+        @csrf
+        <input type="submit" value="Add Course">
+    </form>
+    <h3>Cursos que has creado:</h3>
     <ul>
-        @foreach ($teacher->courses as $course)
-            <li>{{ $course->name }}</li>
-        @endforeach
-    </ul>
-    <h3>Estos son tus alumnos:</h3>
-    <ul>
-        @foreach ($teacher->students as $student)
-            <li>{{ $student->name }}</li>
-        @endforeach
-    </ul>
-
-
-    
-                 <form action="{{ route('create') }}" method="POST">
-                    
+        @forelse(Auth::user()->course as $course) 
+            <li style="display: flex; align-items: center; gap: 20px;">
+                {{ $course->title }}
+                <a href="{{ route('enroll', $course->id) }}" title="Matricular estudiante">↗️</a>
+                <a href="{{ route('editCourses', $course->id) }}" title="Editar">✏️</a>
+                <form action="{{ route('destroyCourses', $course->id) }}" method="POST">
                     @csrf
-                    <input type="submit" value="Add Course">
+                    @method('DELETE')
+                    <button type="submit">Delete</button>
                 </form>
+            </li>
+        @empty
+            <li>No has creado ningún curso.</li>
+        @endforelse
+    </ul>
+
+    <h3>Estudiantes que has matriculado:</h3>
+    <ul>
+        @forelse(Auth::user()->courses as $user)
+            <li>{{ $user->name }}</li>
+        @empty
+            <li>No has matriculado a ningún estudiante.</li>
+        @endforelse
+
 </body>
 </html>

@@ -48,7 +48,13 @@ class TeacherController extends Controller
         return view('addCourse', compact('course'));
     }
 
+    public function destroyCourses($course_id)
+    {
+        $course = Course::findOrFail($course_id); 
+        $course->delete(); 
     
+        return redirect()->route('teacherCourses');
+    }
    
 
 }
