@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+
     <h1>Teachers</h1>
     <h2>Hola, {{ Auth::user()->name }}</h2>
     <form action="{{ route('create') }}" method="POST">

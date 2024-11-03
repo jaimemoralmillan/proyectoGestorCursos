@@ -11,15 +11,14 @@ class TeacherController extends Controller
     
 
     public function teacherCourses() {
-
-
         return view("teachers");
     }
 
     
     public function create()
     {   
-        return view('addCourse');
+        $courses = Course::all();
+        return view('addCourse', compact('courses'));
     }
     public function store(Request $request)
     {   
@@ -30,7 +29,13 @@ class TeacherController extends Controller
         $course->content = $request->content;
         $course->author_id = Auth::user()->id;
         $course->save();
-        return view('addCourse');
+        return redirect()->route('create');
+        
+    }
+    public function edit($id)
+    {
+        $course = Course::find($id);
+        return view('update', compact('course'));
     }
     public function updateCourses(Request $request, $id)
     {
@@ -40,12 +45,8 @@ class TeacherController extends Controller
         $course->curriculum = $request->curriculum;
         $course->content = $request->content;
         $course->save();
-        return redirect()->route('addCourse');
-    }
-    public function editCourses(Request $request, $id)
-    {
-        $course = Course::find($id);
-        return view('addCourse', compact('course'));
+        return redirect()->route('create');
+
     }
 
     public function destroyCourses($course_id)
