@@ -49,7 +49,13 @@ class TeacherController extends Controller
 
     }
 
+    public function destroyCourses($course_id)
+    {
+        $course = Course::findOrFail($course_id); 
+        $course->delete(); 
     
+        return redirect()->route('teacherCourses');
+    }
    
 
 }
