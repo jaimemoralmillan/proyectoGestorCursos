@@ -23,10 +23,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::delete('/teachers/enroll/{course}/{student}', [TeacherController::class, 'destroyStudent'])->name('enroll.destroyStudent'); // Nicklas ruta que desmatricula un usuario
 
     Route::get('/students',[StudentController::class,'students'])->name('students'); //Jaime ruta a vista inicial de students
-    Route::get('/students/courseDetails',[StudentController::class,'courseDetails'])->name('courseDetails'); //Jaime ruta que lleva a los detalles y contenido del curso clicado
+    Route::get('/students/courseDetails{id}',[StudentController::class,'courseDetails'])->name('courseDetails'); //Jaime ruta que lleva a los detalles y contenido del curso clicado
     Route::get('/students/availableCourses',[StudentController::class,'availableCourses'])->name('availableCourses'); //Jaime ruta que lleva al listado de todos los cursos creados
-
-
 
    
 });
