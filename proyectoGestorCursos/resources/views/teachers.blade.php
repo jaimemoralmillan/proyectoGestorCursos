@@ -10,7 +10,9 @@
 
     <h1>Teachers</h1>
     <h2>Hola, {{ Auth::user()->name }}</h2>
-    <form action="{{ route('create') }}" method="get">
+
+    <form action="{{ route('create') }}" method="GET">
+
         @csrf
         <input type="submit" value="Add Course">
     </form>
