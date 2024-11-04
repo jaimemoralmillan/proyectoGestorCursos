@@ -5,22 +5,6 @@
         </h2>
     </x-slot>
 
-
-    <h1>Teachers</h1>
-    <h2>Hola, {{ Auth::user()->name }}</h2>
-    <form action="{{ route('create') }}" method="GET">
-        @csrf
-        <input type="submit" value="Add Course">
-    </form>
-    <h3>Cursos que has creado:</h3>
-    <ul>
-        @forelse(Auth::user()->course as $course) 
-            <li style="display: flex; align-items: center; gap: 20px;">
-                {{ $course->title }}
-                <a href="{{ route('enroll', $course->id) }}" title="Matricular estudiante">↗️</a>
-                <a href="{{ route('editCourses', $course->id) }}" title="Editar">✏️</a>
-                <form action="{{ route('destroyCourses', $course->id) }}" method="POST">
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
@@ -28,7 +12,6 @@
                 <h2 class="text-2xl font-semibold mb-4"></h2>
 
                 <form action="{{ route('create') }}" method="GET" class="mb-6">
-
                     @csrf
                     <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add Course</button>
                 </form>
