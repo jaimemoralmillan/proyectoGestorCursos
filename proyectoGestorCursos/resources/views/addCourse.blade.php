@@ -15,22 +15,9 @@
         <input type="text" name="content" id="content" placeholder="content"/>
         <input type="submit" value="Add Course">
     </form>
-
-
-    <ul>
-        <h1>Lists Course:</h1>
-        @forelse ($courses as $course)
-            <li>
-                {{$course->title}} <a href="{{ route('editCourses', $course->id) }}">✏️​</a>
-            </li>
-           
-        @empty
-            <li><h2>No Data</h2></li>
-        
-        @endforelse
-    </ul> 
-
-    
+    <form action="{{ route('teacherCourses') }}" method="GET">
+        <button type="submit">Go back</button>
+    </form>
     
    
 </body>
