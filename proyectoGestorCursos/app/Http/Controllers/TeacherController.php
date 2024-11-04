@@ -29,7 +29,7 @@ class TeacherController extends Controller
         $course->content = $request->content;
         $course->author_id = Auth::user()->id;
         $course->save();
-        return redirect()->route('create');
+        return redirect()->route('teacherCourses');
         
     }
     public function edit($id)
