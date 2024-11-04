@@ -18,7 +18,7 @@
     <div class="py-5">
         <div class="max-w-4xl mx-auto sm:px-6 lg:px-8 mt-12">
                 <!-- Aquí podrías agregar algún contenido adicional -->
-                <form action="{{ route('dashboard') }}" method="GET" class="mt-4">
+                <form action="{{ route('students') }}" method="GET" class="mt-4">
                     <button type="submit" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Go back</button>
                 </form>
         </div>
