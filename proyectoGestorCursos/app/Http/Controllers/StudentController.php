@@ -12,4 +12,15 @@ class StudentController extends Controller
         $courses = Course::all();
         return view("students", compact("courses"));
     }
+
+
+ public function courseDetails($id) {
+
+        $course = Course::find($id);
+
+        return view("courseDetails", compact("course"));
+    }
+
 }
+
+
