@@ -1,63 +1,54 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-           Bienvenido {{Auth::user()->name}}
+            Bienvenido {{ Auth::user()->name }}
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+   
 
-               
-                
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-6">
+        <div class="bg-white shadow sm:rounded-lg p-6">
+            <h1 class="text-2xl font-bold mb-4">Mis cursos:</h1>
+            {{-- 
+            --TODO : creo que la función está bien 
+            pero Auth::user()->$courses devuelve un nulo 
+            porque no hay cursos
+            TODOEND--
+            
+            <form>
+                @csrf
+                <ul class="list-disc list-inside space-y-2">
+                    @foreach (Auth::user()->$courses as $course)
+                        <li class="text-gray-700">{{ $course->title }}</li>
+                    @endforeach
+                </ul>
+            </form>
+            --}}
+        </div>
 
-                
-            </div>
+        <div class="bg-white shadow sm:rounded-lg p-6 mt-6">
+            <h1 class="text-2xl font-bold mb-4">Cursos Disponibles:</h1>
+            <form>
+                @csrf
+                <ul class="list-disc list-inside space-y-2">
+                    @foreach ($courses as $course)
+                        <li class="flex justify-between items-center">
+                            <span class="text-gray-700">{{ $course->title }}</span>
+                            <a href="{{ route('courseDetails', $course->id) }}" class="text-blue-500 hover:underline" title="details">Ver Detalles</a>
+                        </li>
+                    @endforeach
+                </ul>
+            </form>
         </div>
     </div>
 
-
-    
-    <h1>Mis cursos:</h1>
-
-    {{-- 
-    
-    --TODO : creo que la funcion esta bien 
-    pero Auth::user()->$courses devuelve un nulo 
-    porque no hay cursos
-    TODOEND--
-    
-    <form>
-       
-        @csrf
-        @foreach (Auth::user()->$courses as $course)
-            <li> {{ $course->title }}</li>
-    
-
-         @endforeach
-
-
-    </ul>
-
-
-</form> --}}
-        
-
-    <h1>Cursos Disponibles: </h1>
-    <ul>
-        <form>
-        @csrf
-        @foreach ($courses as $course)
-            <li> {{ $course->title }} <a href="{{ route('courseDetails', $course->id) }}" title="details">Ver Detalles</a>
-            </li>
-    
-
-         @endforeach
-
-
-    </ul>
-
-
-</form>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <!-- Aquí podrías agregar algún contenido adicional -->
+                <form action="{{ route('dashboard') }}" method="GET" class="mt-4">
+                    <button type="submit" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Go back</button>
+                </form>
+        </div>
+    </div>
 </x-app-layout>
