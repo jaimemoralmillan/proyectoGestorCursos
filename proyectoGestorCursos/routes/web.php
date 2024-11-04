@@ -17,7 +17,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::put('/teachers/update/{id}',[TeacherController::class,'updateCourses'])->name('updateCourses'); // Ángela   Ruta que edita el curso con nueva info
     Route::get('/teachers/create',[TeacherController::class,'create'])->name('create');//Angela ruta que te lleva al formulario donde introduces los datos del nuevo curso
     Route::post('/teachers/create/store',[TeacherController::class,'store'])->name('store');//Angela ruta que mete los datos en bdd
-
+//
     Route::get('/teachers/enroll',[TeacherController::class,'enroll'])->name('enroll'); //Nicklas ruta de la vista en la que matriculas un nuevo usuario
     Route::post('/teachers/enroll', [TeacherController::class, 'enrollStudents']); // Nicklas ruta que matricula un nuevo usuario
     Route::delete('/teachers/enroll/{course}/{student}', [TeacherController::class, 'destroyStudent'])->name('enroll.destroyStudent'); // Nicklas ruta que desmatricula un usuario
