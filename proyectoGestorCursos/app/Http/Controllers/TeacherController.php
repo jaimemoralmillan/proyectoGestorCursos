@@ -45,7 +45,7 @@ class TeacherController extends Controller
         $course->curriculum = $request->curriculum;
         $course->content = $request->content;
         $course->save();
-        return redirect()->route('create');
+        return redirect()->route('teacherCourses');
 
     }
 

@@ -20,7 +20,7 @@
                 <ul class="list-disc list-inside space-y-2 mb-6">
                     @forelse(Auth::user()->course as $course) 
                         <li class="flex items-center gap-4">
-                            <span class="text-gray-700">{{ $course->title }}</span>
+                            
                             <a href="{{ route('enroll', $course->id) }}" title="Matricular estudiante" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">👩🏻‍🎓</a>
                             <a href="{{ route('editCourses', $course->id) }}" title="Editar" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">✏️</a>
                             <form action="{{ route('destroyCourses', $course->id) }}" method="POST" class="inline-block">
@@ -28,6 +28,9 @@
                                 @method('DELETE')
                                 <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-blue-600">🗑️</button>
                             </form>
+    
+                            <span class="text-gray-700">{{ $course->title }}</span>
+                            
                         </li>
                     @empty
                         <li class="text-gray-500">No has creado ningún curso.</li>
