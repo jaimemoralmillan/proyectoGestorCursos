@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Course;
+use App\Models\User;
 use Auth;
 
 class TeacherController extends Controller
@@ -49,10 +50,6 @@ class TeacherController extends Controller
 
     }
 
-    public function registration()
-    {
-        return view('registration');
-    }
     public function destroyCourses($course_id)
     {
         $course = Course::findOrFail($course_id); 
@@ -60,6 +57,22 @@ class TeacherController extends Controller
     
         return redirect()->route('teacherCourses');
     }
-   
+    
+    public function enroll()
+    {
+        $students = User::all(); // Obtenemos todos los usuarios
+        return view('enroll', compact( 'students')); // Retornamos la vista con los cursos y usuarios
+    }
+    
+    public function enrollStudents(Request $request) {
+        $course = Course::findOrFail($request->course_id); // Obtenemos el curso seleccionado por id
+        $course->users()->sync($request->student_ids); // Sincronizamos los usuarios seleccionados con el curso
+        return redirect()->back()->with('success', 'Estudiante registrado correctamente!'); // Redireccionamos a la vista anterior con un mensaje de éxito
+    }
 
+    public function destroyStudent($courseId, $studentId) {
+        $course = Course::findOrFail($courseId); // Obtenemos el curso seleccionado por id
+        $course->users()->detach($studentId); // Eliminamos el usuario del curso
+        return redirect()->back()->with('success', 'Estudiante eliminado correctamente!');
+    }
 }
