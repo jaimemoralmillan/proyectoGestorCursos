@@ -10,21 +10,14 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-6">
         <div class="bg-white shadow sm:rounded-lg p-6">
             <h1 class="text-2xl font-bold mb-4">Mis cursos:</h1>
-            {{-- 
-            --TODO : creo que la función está bien 
-            pero Auth::user()->$courses devuelve un nulo 
-            porque no hay cursos
-            TODOEND--
-            
-            <form>
-                @csrf
+          
+{{--                
                 <ul class="list-disc list-inside space-y-2">
                     @foreach (Auth::user()->$courses as $course)
                         <li class="text-gray-700">{{ $course->title }}</li>
                     @endforeach
-                </ul>
-            </form>
-            --}}
+                </ul> --}}
+           
         </div>
 
         <div class="bg-white shadow sm:rounded-lg p-6 mt-6">

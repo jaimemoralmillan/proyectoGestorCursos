@@ -18,7 +18,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::get('/teachers/create',[TeacherController::class,'create'])->name('create');//Angela ruta que te lleva al formulario donde introduces los datos del nuevo curso
     Route::post('/teachers/create/store',[TeacherController::class,'store'])->name('store');//Angela ruta que mete los datos en bdd
     Route::get('/teachers/registration/{id}',[TeacherController::class,'registration'])->name('registration'); //Nicklas ruta de la vista en la que matriculas un nuevo usuario
-    Route::post('/teachers/registration/enroll',[TeacherController::class,'enroll'])->name('enroll');//Angela ruta que mete nuevos usuarios em el curso
+    Route::post('/teachers/registration/enroll/{user}/{course}',[TeacherController::class,'enroll'])->name('enroll');//Angela ruta que mete nuevos usuarios em el curso
     Route::delete('/teachers/registration/unroll/{id}',[TeacherController::class,'unroll'])->name('unroll'); // ruta que borra usuarios del curso
 
     

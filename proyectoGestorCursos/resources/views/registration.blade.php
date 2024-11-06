@@ -14,7 +14,7 @@
     @foreach ($users as $user)
         <li>
             {{$user->name}}
-             <form method='post' action={{route('enroll',$user->id,$course->id)}}>
+            <form method='post' action="{{ route('enroll', ['user' => $user->id, 'course' => $course->id]) }}">
                 @csrf
              <button type="submit">Enroll</button>
         
