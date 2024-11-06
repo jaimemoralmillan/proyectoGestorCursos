@@ -63,16 +63,16 @@ class TeacherController extends Controller
        
         $course = Course::find($id);
         $users=User::all();
-        return view('enroll',compact('course','users'));
+        return view('registration',compact('course','users'));
 
     }
     public function enroll($user_id,$course_id) {
        
         
         $user=User::findOrFail($user_id);
-        $course=Course::findOrFail($course_id);
-         $user->attach($course);
-        return redirect()->route('registration');
+        $user->courses()->attach($course_id);
+        $id=$course_id;
+        return redirect()->route('registration',compact('id'));
 
 
  //$user->attach($course);
