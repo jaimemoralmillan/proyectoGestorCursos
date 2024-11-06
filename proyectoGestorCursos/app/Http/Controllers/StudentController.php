@@ -1,16 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Models\Course ;
+use Illuminate\Support\Facades\Auth;
+
 
 class StudentController extends Controller
 {
     public function students() {
 
         $courses = Course::all();
-        return view("students", compact("courses"));
+        $user = Auth::user();
+        $userCourses = $user->courses; 
+        
+        return view("students", compact("courses","userCourses"));
     }
 
 

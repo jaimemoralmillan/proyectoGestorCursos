@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Panel de control del profesor {{ Auth::user()->name }}
+            Teacher {{ Auth::user()->name }}'s control panel
         </h2>
     </x-slot>
 
@@ -16,7 +16,7 @@
                     <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add Course</button>
                 </form>
                 
-                <h3 class="text-2xl font-semibold mb-4">Cursos que has creado:</h3>
+                <h3 class="text-2xl font-semibold mb-4">Your Created Courses</h3>
                 <ul class="list-disc list-inside space-y-2 mb-6">
                     @forelse(Auth::user()->course as $course) 
                         <li class="flex items-center gap-4">
@@ -33,18 +33,18 @@
                             
                         </li>
                     @empty
-                        <li class="text-gray-500">No has creado ningún curso.</li>
+                        <li class="text-gray-500">You have not created any courses</li>
                     @endforelse
                 </ul>
 
-                <h3 class="text-2xl font-semibold mb-4">Estudiantes que has matriculado:</h3>
+                {{-- <h3 class="text-2xl font-semibold mb-4">Students you have enrolled:</h3>
                 <ul class="list-disc list-inside space-y-2">
                     @forelse(Auth::user()->courses as $user)
                         <li class="text-gray-700">{{ $user->name }}</li>
                     @empty
-                        <li class="text-gray-500">No has matriculado a ningún estudiante.</li>
+                        <li class="text-gray-500">No students enrolled</li>
                     @endforelse
-                </ul>
+                </ul> --}}
             </div>
         </div>
     </div>

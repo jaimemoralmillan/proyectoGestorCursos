@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Bienvenido {{ Auth::user()->name }}
+            Welcome {{ Auth::user()->name }}
         </h2>
     </x-slot>
 
@@ -9,26 +9,27 @@
 
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-6">
         <div class="bg-white shadow sm:rounded-lg p-6">
-            <h1 class="text-2xl font-bold mb-4">Mis cursos:</h1>
-          
-{{--                
-                <ul class="list-disc list-inside space-y-2">
-                    @foreach (Auth::user()->$courses as $course)
-                        <li class="text-gray-700">{{ $course->title }}</li>
-                    @endforeach
-                </ul> --}}
+            <h1 class="text-2xl font-bold mb-4">Currently Enrolled in:</h1>
+          <ul>
+            @forelse ($userCourses as $course)
+               <li> {{$course->title}}</li>
+            
+            @empty
+                Currently not enrolled in any courses
+            @endforelse
+          </ul>
            
         </div>
 
         <div class="bg-white shadow sm:rounded-lg p-6 mt-6">
-            <h1 class="text-2xl font-bold mb-4">Cursos Disponibles:</h1>
+            <h1 class="text-2xl font-bold mb-4">Available Courses</h1>
             <form>
                 @csrf
                 <ul class="list-disc list-inside space-y-2">
                     @foreach ($courses as $course)
                         <li class="flex justify-between items-center">
                             <span class="text-gray-700">{{ $course->title }}</span>
-                            <a href="{{ route('courseDetails', $course->id) }}" class="text-blue-500 hover:underline" title="details">Ver Detalles</a>
+                            <a href="{{ route('courseDetails', $course->id) }}" class="text-blue-500 hover:underline" title="details">View Details</a>
                         </li>
                     @endforeach
                 </ul>
