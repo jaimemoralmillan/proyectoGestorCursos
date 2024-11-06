@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Course;
+use App\Models\User;
 use Auth;
-
+use DB;
 class TeacherController extends Controller
 {
     
@@ -46,6 +47,7 @@ class TeacherController extends Controller
         $course->content = $request->content;
         $course->save();
         return redirect()->route('teacherCourses');
+       
 
     }
 
@@ -57,5 +59,28 @@ class TeacherController extends Controller
         return redirect()->route('teacherCourses');
     }
    
+    public function registration($id) {
+       
+        $course = Course::find($id);
+        $users=User::all();
+        return view('enroll',compact('course','users'));
+
+    }
+    public function enroll($user_id,$course_id) {
+       
+        
+        $user=User::findOrFail($user_id);
+        $course=Course::findOrFail($course_id);
+         $user->attach($course);
+        return redirect()->route('registration');
+
+
+ //$user->attach($course);
+ //DB::table('course_user')->insert([
+            
+ //]); 
+
+    }
+
 
 }
