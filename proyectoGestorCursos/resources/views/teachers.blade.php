@@ -21,7 +21,7 @@
                     @forelse(Auth::user()->course as $course) 
                         <li class="flex items-center gap-4">
                             
-                            <a href="{{ route('enroll', $course->id) }}" title="Matricular estudiante" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">👩🏻‍🎓</a>
+                            <a href="{{ route('registration', $course->id) }}" title="Matricular estudiante" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">👩🏻‍🎓</a>
                             <a href="{{ route('editCourses', $course->id) }}" title="Editar" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">✏️</a>
                             <form action="{{ route('destroyCourses', $course->id) }}" method="POST" class="inline-block">
                                 @csrf
