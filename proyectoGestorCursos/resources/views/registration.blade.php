@@ -11,13 +11,15 @@
             <p class="mb-4">Enrolling students to course: {{ $course->title }}</p>
             <ul class="list-disc list-inside space-y-2">
                 @foreach ($users as $user)
-                    <li class="flex justify-between items-center">
+                @if (!$course->users->contains($user))
+                 <li class="flex justify-between items-center">
                         <span class="text-gray-700">{{ $user->name }}</span>
                         <form method="post" action="{{ route('enroll', ['user' => $user->id, 'course' => $course->id]) }}">
                             @csrf
                             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Enroll</button>
                         </form>
                     </li>
+                @endif
                 @endforeach
             </ul>
         </div>
