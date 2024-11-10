@@ -31,10 +31,10 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|min:6|max:255|unique:courses,title',
-            'description' => 'required|string|min:6|max:1000',
-            'curriculum' => 'required|string|min:6|max:2000',
-            'content' => 'required|min:6|max:5000',
+            'title' => 'nullable|min:6|max:255|unique:courses,title',
+            'description' => 'nullable|string|min:6|max:1000',
+            'curriculum' => 'nullable|string|min:6|max:2000',
+            'content' => 'nullable|min:6|max:5000',
         ];
     }
 

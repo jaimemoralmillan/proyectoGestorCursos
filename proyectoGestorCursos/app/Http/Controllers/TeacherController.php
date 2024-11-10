@@ -7,6 +7,7 @@ use App\Models\Course;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\UpdateRequest;
+use App\Http\Requests\StoreRequest;
 
 class TeacherController extends Controller
 {
@@ -22,7 +23,7 @@ class TeacherController extends Controller
         $courses = Course::all();
         return view('addCourse', compact('courses'));
     }
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {   
         $course = new Course;
         $course->title = $request->title;
