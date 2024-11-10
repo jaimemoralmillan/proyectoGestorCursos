@@ -19,7 +19,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::post('/teachers/create/store',[TeacherController::class,'store'])->name('store');//Angela ruta que mete los datos en bdd
     Route::get('/teachers/registration/{id}',[TeacherController::class,'registration'])->name('registration'); //Nicklas ruta de la vista en la que matriculas un nuevo usuario
     Route::post('/teachers/registration/enroll/{user}/{course}',[TeacherController::class,'enroll'])->name('enroll');//Angela ruta que mete nuevos usuarios em el curso
-    Route::delete('/teachers/registration/unroll/{id}',[TeacherController::class,'unroll'])->name('unroll'); // ruta que borra usuarios del curso
+    Route::delete('/teachers/registration/unenroll/{id}',[TeacherController::class,'unenroll'])->name('unenroll'); // ruta que borra usuarios del curso
 
     
     Route::get('/students',[StudentController::class,'students'])->name('students'); //Jaime ruta a vista inicial de students
