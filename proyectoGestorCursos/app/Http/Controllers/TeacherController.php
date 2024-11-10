@@ -68,7 +68,7 @@ class TeacherController extends Controller
         return view('registration',compact('course','users','usersEnrolled'));
 
     }
-    public function unenroll($user_id,$course_id) {
+    public function enroll($user_id,$course_id) {
        
         
         $user=User::findOrFail($user_id);
