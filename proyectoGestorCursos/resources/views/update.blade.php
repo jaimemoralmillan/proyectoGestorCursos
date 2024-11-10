@@ -1,14 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
         <h1 class="font-semibold text-xl text-gray-800 leading-tight">
-            Editar Curso
+            Edit Course
         </h1>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
-                <h2 class="text-3xl font-bold mb-4">Editando curso {{$course->title}}</h2>
+                <h2 class="text-3xl font-bold mb-4">Editing course: {{$course->title}}</h2>
                 <form action="{{ route('updateCourses', $course->id) }}" method="POST" class="space-y-4">
                     @csrf
                     @method("PUT")
