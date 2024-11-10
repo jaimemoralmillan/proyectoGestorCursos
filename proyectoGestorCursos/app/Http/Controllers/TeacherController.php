@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\UpdateRequest;
 
 class TeacherController extends Controller
 {
@@ -38,7 +39,7 @@ class TeacherController extends Controller
         $course = Course::find($id);
         return view('update', compact('course'));
     }
-    public function updateCourses(Request $request, $id)
+    public function updateCourses(UpdateRequest $request, $id)
     {
         $course = Course::find($id);
         $course->title = $request->title;

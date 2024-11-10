@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
-            $table->string('curriculum');
-            $table->string('content');
+            $table->text('description');
+            $table->mediumText('curriculum');
+            $table->longText('content');
             $table->foreignId('author_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
