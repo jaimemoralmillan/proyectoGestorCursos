@@ -64,10 +64,11 @@ class TeacherController extends Controller
        
         $course = Course::find($id);
         $users=User::all();
-        return view('registration',compact('course','users'));
+        $usersEnrolled= $course->users;
+        return view('registration',compact('course','users','usersEnrolled'));
 
     }
-    public function enroll($user_id,$course_id) {
+    public function unenroll($user_id,$course_id) {
        
         
         $user=User::findOrFail($user_id);
