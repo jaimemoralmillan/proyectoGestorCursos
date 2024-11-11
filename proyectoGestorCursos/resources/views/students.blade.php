@@ -29,7 +29,10 @@
                     @foreach ($courses as $course)
                         <li class="flex justify-between items-center">
                             <span class="text-gray-700">{{ $course->title }}</span>
-                            <a href="{{ route('courseDetails', $course->id) }}" class="text-blue-500 hover:underline" title="details">View Details</a>
+                            <form action="{{ route('courseDetails', $course->id) }}" method="GET" class="mt-4">
+                                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-gray-600">View Details</button>
+                            </form>
+                            {{-- <a href="{{ route('courseDetails', $course->id) }}" class="text-blue-500 hover:underline" title="details">View Details</a> --}}
                         </li>
                     @endforeach
                 </ul>
