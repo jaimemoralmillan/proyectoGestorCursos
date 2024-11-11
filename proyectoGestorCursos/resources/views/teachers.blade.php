@@ -37,21 +37,13 @@
                     @endforelse
                 </ul>
 
-                {{-- <h3 class="text-2xl font-semibold mb-4">Students you have enrolled:</h3>
-                <ul class="list-disc list-inside space-y-2">
-                    @forelse(Auth::user()->courses as $user)
-                        <li class="text-gray-700">{{ $user->name }}</li>
-                    @empty
-                        <li class="text-gray-500">No students enrolled</li>
-                    @endforelse
-                </ul> --}}
             </div>
         </div>
     </div>
 
     
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <!-- Aquí podrías agregar algún contenido adicional -->
+               
                 <form action="{{ route('dashboard') }}" method="GET" class="mt-4">
                     <button type="submit" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Go back</button>
                 </form>

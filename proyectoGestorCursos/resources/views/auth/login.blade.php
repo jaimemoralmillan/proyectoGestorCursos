@@ -44,11 +44,14 @@
                     {{ __('Log in') }}
                 </x-button>
                 <x-button class="ms-4">
-                    <a class="text-sm text-white-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('register') }}">
+                    <a href="{{ route('register') }}">
                         {{ __('Sign Up') }}
                     </a>
                 </x-button>
             </div>
         </form>
+        <br>
+        <hr class="py-2 px-2">
+        <p class="py-1 px-1">Developed by Team Laravellum</p>
     </x-authentication-card>
 </x-guest-layout>
