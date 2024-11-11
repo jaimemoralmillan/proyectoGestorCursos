@@ -1,5 +1,5 @@
 ## Proyecto Gestor de Cursos
-Proyecto realizado en la asignatura de Acceso a Datos del Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones Multiplataforma. 
+Proyecto realizado en la asignatura de Acceso a Datos del segundo curso del Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones Multiplataforma. 
 Consiste en un gestor de cursos que permite a los docentes la creación, edición y eliminación de cursos, así como la matriculación de estudiantes en cada uno de ellos. Además, permite a los estudiantes visualizar dos listados, uno con los cursos en los que se ha matriculado y otro con todos los cursos disponibles y sus detalles.
 
 Para ello se ha implementado lo siguiente:
