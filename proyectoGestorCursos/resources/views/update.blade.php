@@ -27,7 +27,33 @@
                     <div>
                         <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Update Course</button>
                     </div>
+
+                    
                 </form>
+                <br/>
+                
+                @error('title')
+                    <p class="bg-red-500 text-white px-4 py-2 rounded">{{$message}}</p>
+                    <br/>
+                @enderror
+                
+                @error('description')
+                    <p class="bg-red-500 text-white px-4 py-2 rounded">{{$message}}</p>
+                    <br/>
+                @enderror
+               
+                @error('content')
+                    <p class="bg-red-500 text-white px-4 py-2 rounded">{{$message}}</p>
+                    <br/>
+                @enderror
+             
+                @error('curriculum')
+                    <p class="bg-red-500 text-white px-4 py-2 rounded">{{$message}}</p>
+                    <br/>
+                @enderror 
+
+
+                
                 <form action="{{ route('teacherCourses') }}" method="GET" class="mt-4">
                     <button type="submit" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Go back</button>
                 </form>
