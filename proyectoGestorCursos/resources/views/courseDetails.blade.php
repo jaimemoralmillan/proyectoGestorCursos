@@ -7,7 +7,9 @@
 
     <div class="max-w-4xl mx-auto sm:px-6 lg:px-8 mt-12">
         <div class="bg-white shadow sm:rounded-lg p-6">
-            <h1 class="text-3xl font-bold mb-4">{{$course->title}}</h1>
+            <h1 class="text-3xl font-bold mb-4 bg-blue-500 text-white px-4 py-2 rounded">{{$course->title}}</h1>
+            <h2 class="text-2xl font-semibold mb-2">Author:</h2>
+            <p class="text-gray-700 mb-2"> {{$author->name}}</p>
             <h2 class="text-2xl font-semibold mb-2">Description:</h2>
             <p class="text-gray-700 mb-4">{{$course->description}}</p>
             <h2 class="text-2xl font-semibold mb-2">Curriculum:</h2>
