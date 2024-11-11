@@ -70,30 +70,19 @@ class TeacherController extends Controller
 
     }
     public function enroll($user_id,$course_id) {
-       
-        
+    
         $user=User::findOrFail($user_id);
         $user->courses()->attach($course_id);
         $id=$course_id;
         return redirect()->route('registration',compact('id'));
 
-        
-
-
- //$user->attach($course);
- //DB::table('course_user')->insert([
-            
- //]); 
-
     }
 
     public function unenroll($user_id,$course_id) {
        
-        
         $user=User::findOrFail($user_id);
         $user->courses()->detach($course_id);
         $id=$course_id;
         return redirect()->route('registration',compact('id'));
-
-
-} }
+    } 
+}

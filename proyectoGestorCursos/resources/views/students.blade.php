@@ -23,6 +23,7 @@
 
         <div class="bg-white shadow sm:rounded-lg p-6 mt-6">
             <h1 class="text-2xl font-bold mb-4">Available Courses</h1>
+<<<<<<< Updated upstream
             <form>
                 @csrf
                 <ul class="list-disc list-inside space-y-2">
@@ -37,6 +38,23 @@
                     @endforeach
                 </ul>
             </form>
+=======
+           
+                
+            <ul class="list-disc list-inside space-y-2">
+                @foreach ($courses as $course)
+                    <li class="flex justify-between items-center">
+                        <span class="text-gray-700">{{ $course->title }}</span>
+                        <form action="{{ route('courseDetails', $course->id) }}" method="GET" class="mt-4">
+                            @csrf
+                            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-gray-600">View Details</button>
+                        </form>
+                            {{-- <a href="{{ route('courseDetails', $course->id) }}" class="text-blue-500 hover:underline" title="details">View Details</a> --}}
+                    </li>
+                @endforeach
+            </ul>
+            
+>>>>>>> Stashed changes
         </div>
     </div>
 
