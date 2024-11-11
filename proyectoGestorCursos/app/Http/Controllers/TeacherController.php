@@ -77,6 +77,8 @@ class TeacherController extends Controller
         $id=$course_id;
         return redirect()->route('registration',compact('id'));
 
+        
+
 
  //$user->attach($course);
  //DB::table('course_user')->insert([
@@ -85,5 +87,13 @@ class TeacherController extends Controller
 
     }
 
+    public function unenroll($user_id,$course_id) {
+       
+        
+        $user=User::findOrFail($user_id);
+        $user->courses()->detach($course_id);
+        $id=$course_id;
+        return redirect()->route('registration',compact('id'));
 
-}
+
+} }

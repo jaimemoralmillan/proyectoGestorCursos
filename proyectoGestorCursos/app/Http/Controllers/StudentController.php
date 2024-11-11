@@ -20,7 +20,7 @@ class StudentController extends Controller
  public function courseDetails($id) {
 
         $course = Course::find($id);
-
+        
         return view("courseDetails", compact("course"));
     }
 
