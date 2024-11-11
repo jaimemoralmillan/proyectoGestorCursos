@@ -44,7 +44,7 @@ For this the following was implemented:
 
 ## Tech
 
-Para su elaboración se han utilizado las siguientes tecnologías: //  For this project the following technologies were used: 
+For this project the following technologies were used: 
 - Laravel + Blade
 - JetStream Authentication
 - SQLite
