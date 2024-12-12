@@ -17,7 +17,6 @@ return new class extends Migration
             $table->text('description');
             $table->mediumText('curriculum');
             $table->longText('content');
-            $table->foreignId('author_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
